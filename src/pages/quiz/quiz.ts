@@ -12,6 +12,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 @Component({
   selector: 'page-quiz',
   templateUrl: 'quiz.html',
+
 })
 export class QuizPage {
 

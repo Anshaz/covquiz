@@ -1,18 +1,50 @@
 <ion-header>
   <ion-navbar color="primary">
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Home</ion-title>
+    <ion-title>
+      Notifications
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <ion-list no-lines>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+    <ion-item>
+      <ion-label>Notify me at: </ion-label>
+      <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="notifyTime" (ionChange)="timeChange($event)"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>on the following days:</ion-label>
+    </ion-item>
+
+    <ion-item *ngFor="let day of days">
+      <ion-label>{{day.title}}</ion-label>
+      <ion-checkbox [(ngModel)]="day.checked" color="primary"></ion-checkbox>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>
+
+
+
+<ion-content>
+  <div class="container">
+    <div class="logo">
+      <img src="assets/imgs/logo.png" alt="logo" width="250" height="250" align="middle">
+
+      <h1>Welcome to CovQuiz</h1>
+      <h6>Know Your Enemy Better</h6>
+    </div>
+
+    <div class="button-container">
+      <button class="button" (click)="cancelAll()">
+        Cancel Notif
+      </button>
+      <button (click)="addNotifications()" ion-button color="primary" full>Notify Me!</button>
+
+    </div>
+  </div>
 </ion-content>
